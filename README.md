@@ -1,4 +1,4 @@
-<p align="center"><img height="100" src="./static/images/logo-black.svg" /></p>
+<p align="center"><img height="100" src="./static/images/logo-black.png" /></p>
 
 <h1 align="center"> Blockdemy Certs - Client </h1>
 
