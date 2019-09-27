@@ -1,6 +1,6 @@
 {
   "name": "blockdemy-certs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A client to communicate with the Blockdemy Certs application API and handle file certifications",
   "main": "./dist/index.js",
   "homepage": "https://certs.blockdemy.com",
