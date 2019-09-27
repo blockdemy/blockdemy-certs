@@ -1,8 +1,9 @@
 {
   "name": "blockdemy-certs",
   "version": "0.0.1",
-  "description": "",
+  "description": "A client to communicate with the Blockdemy Certs application API and handle file certifications",
   "main": "./dist/index.js",
+  "homepage": "https://certs.blockdemy.com",
   "scripts": {
     "build:commonjs": "babel src --out-dir dist",
     "build:umd": "cross-env FILE_NAME=blockdemy-certs webpack",
@@ -12,12 +13,22 @@
     "lint": "eslint src --ext .js,.jsx",
     "start": "nodemon src/index.js --exec babel-watch"
   },
-  "keywords": [],
+  "keywords": [
+    "ethereum",
+    "web3",
+    "client",
+    "api",
+    "blockchain"
+  ],
   "author": "Ernesto García <ernestognw@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.19.0",
     "form-data": "^2.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
   },
   "devDependencies": {
     "@babel/cli": "^7.6.2",
