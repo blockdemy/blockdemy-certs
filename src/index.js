@@ -27,7 +27,15 @@ class Certs {
     }
   };
 
-  postDocument = async ({ title, description, ownerAddress, expires, signers, file }) => {
+  postDocument = async ({
+    title,
+    description,
+    ownerAddress,
+    expires,
+    signers,
+    file,
+    blockchain
+  }) => {
     try {
       const body = new FormData();
 
@@ -40,11 +48,17 @@ class Certs {
         body.append('signers', signersString);
       }
 
+      if (!blockchain) {
+        // Default parameter
+        blockchain = 'ETHEREUM';
+      }
+
       body.append('title', title);
       body.append('description', description);
       body.append('ownerAddress', ownerAddress);
       body.append('expires', new Date(expires).toString());
       body.append('file', file);
+      body.append('blockchain', blockchain);
 
       const data = await CertsClient.post('/documents', body, {
         headers: {
