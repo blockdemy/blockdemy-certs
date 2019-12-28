@@ -81,12 +81,12 @@ var Certs = function Certs(APIKey) {
     var _ref3 = _asyncToGenerator(
     /*#__PURE__*/
     regeneratorRuntime.mark(function _callee2(_ref2) {
-      var title, description, ownerAddress, expires, signers, file, body, signersString, data;
+      var title, description, ownerAddress, expires, signers, file, blockchain, body, signersString, data;
       return regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              title = _ref2.title, description = _ref2.description, ownerAddress = _ref2.ownerAddress, expires = _ref2.expires, signers = _ref2.signers, file = _ref2.file;
+              title = _ref2.title, description = _ref2.description, ownerAddress = _ref2.ownerAddress, expires = _ref2.expires, signers = _ref2.signers, file = _ref2.file, blockchain = _ref2.blockchain;
               _context2.prev = 1;
               body = new _formData["default"]();
 
@@ -107,31 +107,37 @@ var Certs = function Certs(APIKey) {
               body.append('signers', signersString);
 
             case 8:
+              if (!blockchain) {
+                // Default parameter
+                blockchain = 'ETHEREUM';
+              }
+
               body.append('title', title);
               body.append('description', description);
               body.append('ownerAddress', ownerAddress);
               body.append('expires', new Date(expires).toString());
               body.append('file', file);
-              _context2.next = 15;
+              body.append('blockchain', blockchain);
+              _context2.next = 17;
               return _client["default"].post('/documents', body, {
                 headers: _objectSpread({}, body.getHeaders())
               });
 
-            case 15:
+            case 17:
               data = _context2.sent;
               return _context2.abrupt("return", data);
 
-            case 19:
-              _context2.prev = 19;
+            case 21:
+              _context2.prev = 21;
               _context2.t0 = _context2["catch"](1);
               return _context2.abrupt("return", _context2.t0.response);
 
-            case 22:
+            case 24:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[1, 19]]);
+      }, _callee2, null, [[1, 21]]);
     }));
 
     return function (_x2) {
